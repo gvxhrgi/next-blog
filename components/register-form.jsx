@@ -3,7 +3,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function LoginForm() {
+export default function RegisterForm() {
   const [loginUser, setLoginUser] = useState();
   const [loginPassword, setLoginPassword] = useState();
   const [errorMsg, setErrorMsg] = useState();
@@ -120,7 +120,7 @@ export default function LoginForm() {
         <p className="mt-10 text-center text-sm text-gray-400">
           Already Have An Account?{" "}
           <a
-            href="#"
+            href="/login"
             className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
           >
             Login Now

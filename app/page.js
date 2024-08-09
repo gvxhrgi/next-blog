@@ -2,23 +2,21 @@
 import axios from "axios";
 import Link from "next/link";
 import React from "react";
-import { getCookie, hasCookie, setCookie } from "cookies-next";
+import localStorage from "local-storage";
+import { useRouter } from "next/navigation";
 
 export default async function Home() {
-  const cookie = getCookie("isLogged");
-
-  if (hasCookie("isLogged")) {
-    console.log(getCookie("isLogged"));
-  } else {
-    setCookie("isLogged", false);
-  }
+  const router = useRouter();
 
   const response = await axios.get(
     "https://jsonplaceholder.typicode.com/posts"
   );
   const postdata = await response.data;
 
-  return cookie ? (
+  var isLogged = localStorage.get("isLogged");
+  console.log(isLogged);
+
+  return isLogged ? (
     <div>
       {postdata.map((element, index) => {
         return (
@@ -37,9 +35,15 @@ export default async function Home() {
                     Blog
                   </p>
                 </div>
-                <h3 className="font-black text-gray-800 md:text-3xl text-xl">
+                <Link
+                  href={{
+                    pathname: "/blogs",
+                    query: `postid=${postdata[index].id}`,
+                  }}
+                  className="font-black text-gray-800 md:text-3xl text-xl"
+                >
                   {postdata[index].title}
-                </h3>
+                </Link>
                 <p className="md:text-lg text-gray-500 text-base">
                   {postdata[index].body}
                 </p>
