@@ -15,7 +15,7 @@ export default function RegisterForm() {
 
     const postreq = await axios
       .post(
-        "https://fakeauthentication-api.onrender.com/api/dynamicUsers/superAdmin/register",
+        "https://fakeauthentication-api.onrender.com/api/staticUsers/login",
         {
           SuperAdminUserName: loginUser,
           password: loginPassword,

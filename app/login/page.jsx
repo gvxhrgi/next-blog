@@ -40,6 +40,7 @@ export default function LoginPage() {
         <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">
           Login To Your Account
         </h2>
+        <h4 className="mt-3 text-center text-sm font-bold leading-9 tracking-tight text-white">Default Credentials are <a className="text-indigo-600 hover:text-indigo-500" href="https://fakeauthentication-api.onrender.com/api/api-docs/#/Static%20Users/post_api_staticUsers_login" target="_blank" rel="noopener noreferrer">Here</a> </h4>
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
